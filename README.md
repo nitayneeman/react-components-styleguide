@@ -193,7 +193,7 @@ interface FocusProps<T> {
 #### Public Methods
 
 ```tsx
-interface Element {
+interface FocusMethods {
   focus: () => void;
 }
 ```
