@@ -17,7 +17,7 @@
 
 ### Base
 
-```jsx
+```tsx
 interface Base {
   id?: string;
   name?: string;
@@ -29,7 +29,7 @@ interface Base {
 
 ### Buttons
 
-```jsx
+```tsx
 interface Button extends Base, Click, Focus {
   children: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
@@ -52,7 +52,7 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 
 ##### Toggle Button
 
-```jsx
+```tsx
 interface ToggleButton extends Button {
   selected?: boolean;
 }
@@ -62,7 +62,7 @@ interface ToggleButton extends Button {
 
 ### Inputs
 
-```jsx
+```tsx
 interface Input<T> extends Base, Change<T>, Focus {
   value?: any;
   size?: 'small' | 'medium' | 'large';
@@ -80,7 +80,7 @@ Extending: [Base](#base), [Change](#change), [Focus](#focus).
 
 ##### Text Field
 
-```jsx
+```tsx
 interface TextField extends Input<HTMLInputElement> {
   label?: string;
   placeholder?: string;
@@ -92,8 +92,16 @@ interface TextField extends Input<HTMLInputElement> {
 
 ##### Checkbox
 
-```jsx
+```tsx
 interface Checkbox extends Input<HTMLInputElement> {
+  checked?: boolean;
+}
+```
+
+##### Radio
+
+```tsx
+interface Radio extends Input<HTMLInputElement> {
   checked?: boolean;
 }
 ```
@@ -102,7 +110,7 @@ interface Checkbox extends Input<HTMLInputElement> {
 
 ### Change
 
-```jsx
+```tsx
 interface Change<T> {
   onChange?: (event: ChangeEvent<T>) => void;
 }
@@ -112,7 +120,7 @@ interface Change<T> {
 
 ### Click
 
-```jsx
+```tsx
 interface Click {
   onClick?: React.MouseEventHandler;
   onDblClick?: React.MouseEventHandler;
@@ -123,7 +131,7 @@ interface Click {
 
 ### Focus
 
-```jsx
+```tsx
 interface Focus {
   autoFocus?: boolean;
   onFocus?: (event: React.FocusEvent) => void;
