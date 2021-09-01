@@ -9,6 +9,7 @@
   - [Modals](#modals)
   - [Navigation](#navigation)
 - [Behaviors](#behaviors)
+  - [Change](#change)
   - [Click](#click)
   - [Focus](#focus)
 
@@ -44,7 +45,7 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 
 #### Accessability
 
-- Allow using `aria-label`, `aria-labeledby` and `aria-describedby` to label the button and describe it with extra information.
+- Allow using `aria-label`, `aria-labeledby` and `aria-describedby` - to label the button and describe it with extra information.
 - When the button isn't implemented using the native `<button>` element, `role="button"` is needed.
 
 #### Extensions
@@ -62,10 +63,52 @@ interface ToggleButton extends Button {
 ### Inputs
 
 ```jsx
+interface Input<T> extends Base, Change<T>, Focus {
+  value?: any;
+  size?: 'small' | 'medium' | 'large';
+  disabled?: boolean;
+  required?: boolean;
+  ariaLabel?: string;
+  ariaLabelBy?: string;
+  ariaDescribedBy?: string;
+}
+```
 
+Extending: [Base](#base), [Change](#change), [Focus](#focus).
+
+#### Extensions
+
+##### Text Field
+
+```jsx
+interface TextField extends Input<HTMLInputElement> {
+  label?: string;
+  placeholder?: string;
+  readOnly?: boolean;
+  minLength?: number;
+  maxLength?: number;
+}
+```
+
+##### Checkbox
+
+```jsx
+interface Checkbox extends Input<HTMLInputElement> {
+  checked?: boolean;
+}
 ```
 
 ## Behaviors
+
+### Change
+
+```jsx
+interface Change<T> {
+  onChange?: (event: ChangeEvent<T>) => void;
+}
+```
+
+**[🔝 Back to top](#table-of-contents)**
 
 ### Click
 
