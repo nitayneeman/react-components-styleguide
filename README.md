@@ -19,7 +19,7 @@
 ### Base
 
 ```tsx
-interface Base {
+interface BaseProps {
   id?: string;
   name?: string;
   className?: string;
@@ -38,7 +38,10 @@ interface Base {
 ### Buttons
 
 ```tsx
-interface Button extends Base, Click, Focus {
+interface ButtonProps
+  extends BaseProps,
+    ClickProps,
+    FocusProps<HTMLButtonElement> {
   children: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
@@ -57,7 +60,7 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 ##### Toggle Button
 
 ```tsx
-interface ToggleButton extends Button {
+interface ToggleButtonProps extends ButtonProps {
   selected?: boolean;
 }
 ```
@@ -67,7 +70,7 @@ interface ToggleButton extends Button {
 ### Inputs
 
 ```tsx
-interface Input<T> extends Base, Change<T>, Focus {
+interface InputProps<T> extends BaseProps, ChangeProps<T>, FocusProps<T> {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   required?: boolean;
@@ -86,7 +89,7 @@ Extending: [Base](#base), [Change](#change), [Focus](#focus).
 ##### Text Field
 
 ```tsx
-interface TextField extends Input<HTMLInputElement> {
+interface TextFieldProps extends InputProps<HTMLInputElement> {
   label: string;
   placeholder?: string;
   readOnly?: boolean;
@@ -98,7 +101,7 @@ interface TextField extends Input<HTMLInputElement> {
 ##### Checkbox
 
 ```tsx
-interface Checkbox extends Input<HTMLInputElement> {
+interface CheckboxProps extends InputProps<HTMLInputElement> {
   checked?: boolean;
 }
 ```
@@ -106,7 +109,7 @@ interface Checkbox extends Input<HTMLInputElement> {
 ##### Radio
 
 ```tsx
-interface Radio extends Input<HTMLInputElement> {
+interface RadioProps extends InputProps<HTMLInputElement> {
   checked?: boolean;
 }
 ```
@@ -116,7 +119,7 @@ interface Radio extends Input<HTMLInputElement> {
 ### Modals
 
 ```tsx
-interface Modal extends Base, Close {
+interface ModalProps extends BaseProps, CloseProps {
   children: React.ReactNode;
 }
 ```
@@ -133,7 +136,7 @@ Extending: [Base](#base), [Close](#close).
 ##### Dialog
 
 ```tsx
-interface Dialog extends Modal {
+interface DialogProps extends ModalProps {
   title?: string;
   actions?: React.ReactNode;
 }
@@ -146,7 +149,7 @@ interface Dialog extends Modal {
 ### Change
 
 ```tsx
-interface Change<T> {
+interface ChangeProps<T> {
   value?: any;
   onChange?: (event: ChangeEvent<T>) => void;
 }
@@ -157,7 +160,7 @@ interface Change<T> {
 ### Click
 
 ```tsx
-interface Click {
+interface ClickProps {
   onClick?: React.MouseEventHandler;
   onDblClick?: React.MouseEventHandler;
 }
@@ -168,7 +171,7 @@ interface Click {
 ### Close
 
 ```tsx
-interface Close {
+interface CloseProps {
   open?: boolean;
   onClose?: () => void;
 }
@@ -179,10 +182,19 @@ interface Close {
 ### Focus
 
 ```tsx
-interface Focus {
+interface FocusProps<T> {
+  ref?: React.RefObject<T>;
   autoFocus?: boolean;
   onFocus?: (event: React.FocusEvent) => void;
   onBlur?: (event: React.FocusEvent) => void;
+}
+```
+
+#### Public Methods
+
+```tsx
+interface Element {
+  focus: () => void;
 }
 ```
 
