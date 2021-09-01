@@ -125,7 +125,8 @@ Extending: [Base](#base), [Close](#close).
 
 #### Accessability
 
--
+- When the modal isn't implemented using the native `<dialog>` element, `role="dialog"` and `aria-modal="true"` are needed.
+- If a close button exits, it should be allowed to pass `aria-label` and `aria-labeledby` from the consumer to that button.
 
 #### Extensions
 
