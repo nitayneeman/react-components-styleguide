@@ -24,7 +24,7 @@ interface Base {
 }
 ```
 
-**[⬆ Back to top](#table-of-contents)**
+**[🔝 Back to top](#table-of-contents)**
 
 ### Buttons
 
@@ -44,7 +44,8 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 
 #### Accessability
 
-- Use ...
+- Allow using `aria-label`, `aria-labeledby` and `aria-describedby` to label the button and describe it with extra information.
+- When the button isn't implemented using the native `<button>` element, `role="button"` is needed.
 
 #### Extensions
 
@@ -56,7 +57,7 @@ interface ToggleButton extends Button {
 }
 ```
 
-**[⬆ Back to top](#table-of-contents)**
+**[🔝 Back to top](#table-of-contents)**
 
 ### Inputs
 
@@ -75,7 +76,7 @@ interface Click {
 }
 ```
 
-**[⬆ Back to top](#table-of-contents)**
+**[🔝 Back to top](#table-of-contents)**
 
 ### Focus
 
@@ -87,4 +88,4 @@ interface Focus {
 }
 ```
 
-**[⬆ Back to top](#table-of-contents)**
+**[🔝 Back to top](#table-of-contents)**
