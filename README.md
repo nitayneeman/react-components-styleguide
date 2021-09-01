@@ -22,8 +22,15 @@ interface Base {
   id?: string;
   name?: string;
   className?: string;
+  ariaLabel?: string;
+  ariaLabelBy?: string;
+  ariaDescribedBy?: string;
 }
 ```
+
+#### Accessability
+
+- Allow using `aria-label`, `aria-labeledby` and `aria-describedby` - to label the element and describe it with extra information.
 
 **[🔝 Back to top](#table-of-contents)**
 
@@ -35,9 +42,6 @@ interface Button extends Base, Click, Focus {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   prefix?: React.ReactNode;
-  ariaLabel?: string;
-  ariaLabelBy?: string;
-  ariaDescribedBy?: string;
 }
 ```
 
@@ -45,7 +49,6 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 
 #### Accessability
 
-- Allow using `aria-label`, `aria-labeledby` and `aria-describedby` - to label the button and describe it with extra information.
 - When the button isn't implemented using the native `<button>` element, `role="button"` is needed.
 
 #### Extensions
@@ -68,13 +71,15 @@ interface Input<T> extends Base, Change<T>, Focus {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   required?: boolean;
-  ariaLabel?: string;
-  ariaLabelBy?: string;
-  ariaDescribedBy?: string;
 }
 ```
 
 Extending: [Base](#base), [Change](#change), [Focus](#focus).
+
+#### Accessability
+
+- Text Field must have label associated with the input using a `for` attribute.
+- In case of error validation, `aria-describedby` should be associated with the error message element.
 
 #### Extensions
 
@@ -82,7 +87,7 @@ Extending: [Base](#base), [Change](#change), [Focus](#focus).
 
 ```tsx
 interface TextField extends Input<HTMLInputElement> {
-  label?: string;
+  label: string;
   placeholder?: string;
   readOnly?: boolean;
   minLength?: number;
