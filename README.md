@@ -11,6 +11,7 @@
 - [Behaviors](#behaviors)
   - [Change](#change)
   - [Click](#click)
+  - [Close](#close)
   - [Focus](#focus)
 
 ## Components
@@ -67,7 +68,6 @@ interface ToggleButton extends Button {
 
 ```tsx
 interface Input<T> extends Base, Change<T>, Focus {
-  value?: any;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   required?: boolean;
@@ -111,12 +111,42 @@ interface Radio extends Input<HTMLInputElement> {
 }
 ```
 
+**[🔝 Back to top](#table-of-contents)**
+
+### Modals
+
+```tsx
+interface Modal extends Base, Close {
+  children: React.ReactNode;
+}
+```
+
+Extending: [Base](#base), [Close](#close).
+
+#### Accessability
+
+-
+
+#### Extensions
+
+##### Dialog
+
+```tsx
+interface Dialog extends Modal {
+  title?: string;
+  actions?: React.ReactNode;
+}
+```
+
+**[🔝 Back to top](#table-of-contents)**
+
 ## Behaviors
 
 ### Change
 
 ```tsx
 interface Change<T> {
+  value?: any;
   onChange?: (event: ChangeEvent<T>) => void;
 }
 ```
@@ -129,6 +159,17 @@ interface Change<T> {
 interface Click {
   onClick?: React.MouseEventHandler;
   onDblClick?: React.MouseEventHandler;
+}
+```
+
+**[🔝 Back to top](#table-of-contents)**
+
+### Close
+
+```tsx
+interface Close {
+  open?: boolean;
+  onClose?: () => void;
 }
 ```
 
