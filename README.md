@@ -11,8 +11,8 @@
 - [Behaviors](#behaviors)
   - [Change](#change)
   - [Click](#click)
-  - [Close](#close)
   - [Focus](#focus)
+  - [Open](#open)
 
 ## Components
 
@@ -114,17 +114,32 @@ interface RadioProps extends InputProps<HTMLInputElement> {
 }
 ```
 
+##### Select
+
+```tsx
+interface SelectProps extends InputProps<HTMLSelectElement>, OpenProps {
+  children: React.ReactNode;
+  placeholder?: string;
+  multiple?: boolean;
+}
+
+interface OptionProps extends BaseProps {
+  children: React.ReactNode;
+  disabled?: boolean;
+}
+```
+
 **[🔝 Back to top](#table-of-contents)**
 
 ### Modals
 
 ```tsx
-interface ModalProps extends BaseProps, CloseProps {
+interface ModalProps extends BaseProps, OpenProps {
   children: React.ReactNode;
 }
 ```
 
-Extending: [Base](#base), [Close](#close).
+Extending: [Base](#base), [Open](#open).
 
 #### Accessability
 
@@ -168,17 +183,6 @@ interface ClickProps {
 
 **[🔝 Back to top](#table-of-contents)**
 
-### Close
-
-```tsx
-interface CloseProps {
-  open?: boolean;
-  onClose?: () => void;
-}
-```
-
-**[🔝 Back to top](#table-of-contents)**
-
 ### Focus
 
 ```tsx
@@ -195,6 +199,18 @@ interface FocusProps<T> {
 ```tsx
 interface FocusMethods {
   focus: () => void;
+}
+```
+
+**[🔝 Back to top](#table-of-contents)**
+
+### Open
+
+```tsx
+interface OpenProps {
+  open?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
 }
 ```
 
