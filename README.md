@@ -121,10 +121,12 @@ interface SelectProps extends InputProps<HTMLSelectElement>, OpenProps {
   children: React.ReactNode;
   placeholder?: string;
   multiple?: boolean;
+  native?: boolean;
 }
 
 interface OptionProps extends BaseProps {
-  children: React.ReactNode;
+  value: any;
+  children?: React.ReactNode;
   disabled?: boolean;
 }
 ```
