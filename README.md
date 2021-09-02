@@ -55,6 +55,7 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 #### Accessability
 
 - When the button isn't implemented using the native `<button>` element, `role="button"` is needed.
+- Toggle Button should have a descriptive title - whether implemented using the native `title` attribute or a custom tooltip.
 
 #### Extensions
 
@@ -62,6 +63,7 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 
 ```tsx
 interface ToggleButtonProps extends ButtonProps {
+  title: string;
   selected?: boolean;
 }
 ```
@@ -87,7 +89,7 @@ Extending: [Base](#base), [Change](#change), [Error](#error), [Focus](#focus).
 #### Accessability
 
 - Text Field must have label associated with the input using a `for` attribute.
-- In case of error validation, `aria-describedby` should be associated with the error message element.
+- In case of error validation, `aria-describedby` should be associated with the error message element and `aria-invalid` should be attached to the input element.
 
 #### Extensions
 
@@ -196,6 +198,7 @@ interface ClickProps {
 interface ErrorProps<T> {
   error?: boolean;
   errorMessage?: string;
+  ariaInvalid?: boolean;
   onError?: (event: React.SyntheticEvent<T>) => void;
 }
 ```
