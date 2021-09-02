@@ -74,15 +74,15 @@ interface ToggleButtonProps extends ButtonProps {
 interface InputProps<T>
   extends BaseProps,
     ChangeProps<T>,
-    FocusProps<T>,
-    ErrorProps<T> {
+    ErrorProps<T>,
+    FocusProps<T> {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   required?: boolean;
 }
 ```
 
-Extending: [Base](#base), [Change](#change), [Focus](#focus).
+Extending: [Base](#base), [Change](#change), [Error](#error), [Focus](#focus).
 
 #### Accessability
 
