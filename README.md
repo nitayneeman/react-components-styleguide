@@ -11,6 +11,7 @@
 - [Behaviors](#behaviors)
   - [Change](#change)
   - [Click](#click)
+  - [Error](#error)
   - [Focus](#focus)
   - [Open](#open)
 
@@ -70,7 +71,11 @@ interface ToggleButtonProps extends ButtonProps {
 ### Inputs
 
 ```tsx
-interface InputProps<T> extends BaseProps, ChangeProps<T>, FocusProps<T> {
+interface InputProps<T>
+  extends BaseProps,
+    ChangeProps<T>,
+    FocusProps<T>,
+    ErrorProps<T> {
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   required?: boolean;
@@ -180,6 +185,18 @@ interface ChangeProps<T> {
 interface ClickProps {
   onClick?: React.MouseEventHandler;
   onDblClick?: React.MouseEventHandler;
+}
+```
+
+**[🔝 Back to top](#table-of-contents)**
+
+### Error
+
+```tsx
+interface ErrorProps<T> {
+  error?: boolean;
+  errorMessage?: string;
+  onError?: (event: React.SyntheticEvent<T>) => void;
 }
 ```
 
