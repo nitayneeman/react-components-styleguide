@@ -15,15 +15,18 @@
   - [Focus](#focus)
   - [Open](#open)
 
+## Intro
+
 ## Components
 
 ### Base
 
 ```tsx
-interface BaseProps {
+interface BaseProps<T> {
   id?: string;
   name?: string;
   className?: string;
+  ref?: React.RefObject<T>;
   ariaLabel?: string;
   ariaLabelBy?: string;
   ariaDescribedBy?: string;
@@ -40,9 +43,9 @@ interface BaseProps {
 
 ```tsx
 interface ButtonProps
-  extends BaseProps,
+  extends BaseProps<HTMLButtonElement>,
     ClickProps,
-    FocusProps<HTMLButtonElement> {
+    FocusProps {
   children: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
@@ -55,7 +58,7 @@ Extending: [Base](#base), [Click](#click), [Focus](#focus).
 #### Accessability
 
 - When the button isn't implemented using the native `<button>` element, `role="button"` is needed.
-- Toggle Button should have a descriptive title - whether implemented using the native `title` attribute or a custom tooltip.
+- Non-textual buttons (e.g Toggle Button) should have a descriptive title - whether implemented using the native `title` attribute or a custom tooltip.
 
 #### Extensions
 
@@ -74,10 +77,11 @@ interface ToggleButtonProps extends ButtonProps {
 
 ```tsx
 interface InputProps<T>
-  extends BaseProps,
+  extends BaseProps<T>,
     ChangeProps<T>,
     ErrorProps<T>,
-    FocusProps<T> {
+    FocusProps {
+  value?: any;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   required?: boolean;
@@ -102,6 +106,7 @@ interface TextFieldProps extends InputProps<HTMLInputElement> {
   readOnly?: boolean;
   minLength?: number;
   maxLength?: number;
+  autocomplete?: any;
 }
 ```
 
@@ -143,7 +148,7 @@ interface OptionProps extends BaseProps {
 ### Modals
 
 ```tsx
-interface ModalProps extends BaseProps, OpenProps {
+interface ModalProps extends BaseProps<HTMLDialogElement>, OpenProps {
   children: React.ReactNode;
 }
 ```
@@ -157,7 +162,7 @@ Extending: [Base](#base), [Open](#open).
 
 #### Extensions
 
-##### Dialog
+##### AlertDialog
 
 ```tsx
 interface DialogProps extends ModalProps {
@@ -165,6 +170,22 @@ interface DialogProps extends ModalProps {
   actions?: React.ReactNode;
 }
 ```
+
+**[🔝 Back to top](#table-of-contents)**
+
+## Navigation
+
+### Link
+
+```tsx
+interface LinkProps extends BaseProps<HTMLLinkElement> {}
+```
+
+Extending: [Base](#base).
+
+#### Accessability
+
+- Allow
 
 **[🔝 Back to top](#table-of-contents)**
 
@@ -198,7 +219,6 @@ interface ClickProps {
 interface ErrorProps<T> {
   error?: boolean;
   errorMessage?: string;
-  ariaInvalid?: boolean;
   onError?: (event: React.SyntheticEvent<T>) => void;
 }
 ```
@@ -209,7 +229,6 @@ interface ErrorProps<T> {
 
 ```tsx
 interface FocusProps<T> {
-  ref?: React.RefObject<T>;
   autoFocus?: boolean;
   onFocus?: (event: React.FocusEvent) => void;
   onBlur?: (event: React.FocusEvent) => void;
@@ -233,6 +252,14 @@ interface OpenProps {
   open?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
+}
+```
+
+#### Public Methods
+
+```tsx
+interface OpenMethods {
+  open: () => void;
 }
 ```
 
