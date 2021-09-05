@@ -162,7 +162,7 @@ Extending: [Base](#base), [Open](#open).
 
 #### Extensions
 
-##### AlertDialog
+##### Dialog
 
 ```tsx
 interface DialogProps extends ModalProps {
@@ -178,14 +178,19 @@ interface DialogProps extends ModalProps {
 ### Link
 
 ```tsx
-interface LinkProps extends BaseProps<HTMLLinkElement> {}
+interface LinkProps extends BaseProps<HTMLLinkElement> {
+  children: React.ReactNode;
+  href: string;
+  rel?: string;
+  target?: string;
+}
 ```
 
 Extending: [Base](#base).
 
 #### Accessability
 
-- Allow
+- Pressing the enter key when the link is focused should activate it.
 
 **[🔝 Back to top](#table-of-contents)**
 
