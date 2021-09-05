@@ -1,5 +1,9 @@
 # React Components Styleguide
 
+An opinionated styleguide concentrating essential props, behaviors and accessibility guidelines for common React components.
+
+The purpose is to guide developers in a clear and cohesive way when implementing design systems' components or applicative components.
+
 ## Table of Contents
 
 - [Components](#components)
@@ -14,8 +18,6 @@
   - [Error](#error)
   - [Focus](#focus)
   - [Open](#open)
-
-## Intro
 
 ## Components
 
