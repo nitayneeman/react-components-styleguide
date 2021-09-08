@@ -5,6 +5,8 @@ An opinionated styleguide concentrating essential props, common behaviors and ac
 The purpose is to guide developers in a clear and cohesive way when specifying
 design systems' components or applicative ones.
 
+Although suggestions below were collected from popular design systems, they are still opinionated. You don't have to completely adhere, but rather consider them.
+
 ## Table of Contents
 
 - [Components](#components)
@@ -22,7 +24,7 @@ design systems' components or applicative ones.
 
 ## Components
 
-This section lists components by popular categories. Each category specifies likely needed props (that might be inherited from other components or behavior compositions), accessibility guidelines and prominent extensions of this kind of component.
+This section lists components by familiar categories. Each category specifies likely needed props (that might be inherited from other components or behavior compositions), accessibility guidelines and prominent extensions of this kind of component.
 
 ### Base
 
