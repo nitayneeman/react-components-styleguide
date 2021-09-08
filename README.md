@@ -22,7 +22,8 @@ design systems' components or applicative ones.
 
 ## Components
 
-This section reviews popular types of components 
+This section lists components by popular categories. Each category specifies likely needed props (that might be inherited from other components or behavior compositions), accessibility guidelines and prominent extensions of this kind of component.
+
 ### Base
 
 ```tsx
@@ -192,6 +193,8 @@ Extending: [Base](#base).
 **[🔝 Back to top](#table-of-contents)**
 
 ## Behaviors
+
+This section lists compositions of common behaviors, so that each behavior consists of several likely needed props and may have public methods.
 
 ### Change
 
