@@ -1,8 +1,9 @@
 # React Components Styleguide
 
-An opinionated styleguide concentrating essential props, behaviors and accessibility guidelines for common React components.
+An opinionated styleguide concentrating essential props, common behaviors and accessibility guidelines for React components.
 
-The purpose is to guide developers in a clear and cohesive way when implementing design systems' components or applicative components.
+The purpose is to guide developers in a clear and cohesive way when implementing
+design systems' components or applicative ones.
 
 ## Table of Contents
 
@@ -44,10 +45,7 @@ interface BaseProps<T> {
 ### Buttons
 
 ```tsx
-interface ButtonProps
-  extends BaseProps<HTMLButtonElement>,
-    ClickProps,
-    FocusProps {
+interface ButtonProps extends BaseProps<HTMLButtonElement>, ClickProps, FocusProps {
   children: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
@@ -78,11 +76,7 @@ interface ToggleButtonProps extends ButtonProps {
 ### Inputs
 
 ```tsx
-interface InputProps<T>
-  extends BaseProps<T>,
-    ChangeProps<T>,
-    ErrorProps<T>,
-    FocusProps {
+interface InputProps<T> extends BaseProps<T>, ChangeProps<T>, ErrorProps<T>, FocusProps {
   value?: any;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
