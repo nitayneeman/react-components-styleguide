@@ -5,24 +5,24 @@ An opinionated styleguide concentrating essential props, common behaviors and ac
 The purpose is to guide developers in a clear and cohesive way when specifying
 design systems' components or applicative ones.
 
-Although suggestions below were collected from popular design systems, they are still opinionated. You don't have to completely adhere, but rather consider them.
+⚠️ Although the suggestions below were collected from popular design systems, they are still opinionated. You don't have to completely adhere, but rather consider them.
 
 ## Table of Contents
 
-- [Components](#components)
+- [🧱 Components](#components)
   - [Base](#base)
   - [Buttons](#buttons)
   - [Inputs](#inputs)
   - [Modals](#modals)
   - [Navigation](#navigation)
-- [Behaviors](#behaviors)
+- [🖱️ Behaviors](#behaviors)
   - [Change](#change)
   - [Click](#click)
   - [Error](#error)
   - [Focus](#focus)
   - [Open](#open)
 
-## Components
+## 🧱 Components
 
 This section lists components by familiar categories. Each category specifies likely needed props (that might be inherited from other components or behavior compositions), accessibility guidelines and prominent extensions of this kind of component.
 
@@ -194,7 +194,7 @@ Extending: [Base](#base).
 
 **[🔝 Back to top](#table-of-contents)**
 
-## Behaviors
+## 🖱️ Behaviors
 
 This section lists compositions of common behaviors, so that each behavior consists of several likely needed props and may have public methods.
 
