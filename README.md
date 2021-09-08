@@ -236,6 +236,7 @@ interface ErrorProps<T> {
 
 ```tsx
 interface FocusProps<T> {
+  // Consider `autoFocus` carefully - since it may confuse screen readers and real users as well.
   autoFocus?: boolean;
   onFocus?: (event: React.FocusEvent) => void;
   onBlur?: (event: React.FocusEvent) => void;
@@ -246,6 +247,7 @@ interface FocusProps<T> {
 
 ```tsx
 interface FocusMethods {
+  // Sometimes programmatically managing focus is inevitable and necessary.
   focus: () => void;
 }
 ```
@@ -266,6 +268,7 @@ interface OpenProps {
 
 ```tsx
 interface OpenMethods {
+  // Apparently most of the time the component will be competently controlled, but in some cases we might need to open it programmatically.
   open: () => void;
 }
 ```
