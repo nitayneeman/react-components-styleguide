@@ -42,7 +42,7 @@ interface BaseProps<T> {
 
 #### Accessability
 
-- Allow using `aria-label`, `aria-labeledby` and `aria-describedby` - to label the element and describe it with extra information.
+- Allow the consumer passing `aria-label`, `aria-labeledby` and `aria-describedby` in order to label the element and describe it with extra information.
 
 **[🔝 Back to top](#table-of-contents)**
 
