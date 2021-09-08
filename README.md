@@ -268,7 +268,8 @@ interface OpenProps {
 
 ```tsx
 interface OpenMethods {
-  // Apparently most of the time the component will be competently controlled, but in some cases we might need to open it programmatically.
+  // Apparently most of the time the component will be competently controlled,
+  // but in some cases we might need to open it programmatically.
   open: () => void;
 }
 ```
